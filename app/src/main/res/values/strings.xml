@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">NYTimesApp</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Filter</string>
     <string name="Hint">Enter search value</string>
     <string name="search">Search</string>
+    <array name="SpinArray">
+        <item>"Newest"</item>
+        <item>"Oldest"</item>
+    </array>
+    <string name="title_activity_article_activities">ArticleActivities</string>
 </resources>
