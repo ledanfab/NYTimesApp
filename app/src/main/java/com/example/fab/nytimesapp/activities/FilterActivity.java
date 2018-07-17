@@ -2,6 +2,7 @@ package com.example.fab.nytimesapp.activities;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class FilterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
+
         sharedPreferences = FilterActivity.this.getSharedPreferences("Settings", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -45,6 +47,7 @@ public class FilterActivity extends AppCompatActivity {
         art = findViewById(R.id.cbArt);
         sport = findViewById(R.id.cbSport);
         fashion = findViewById(R.id.cbFashion);
+
 
         //setting up etdate picker
         calendar = Calendar.getInstance();
@@ -69,6 +72,7 @@ public class FilterActivity extends AppCompatActivity {
                         calendar.get(calendar.DAY_OF_MONTH)).show();
             }
         });
+
 
         // Setting up spinner
         spinner = findViewById(R.id.OrderSpinner);
@@ -134,6 +138,15 @@ public class FilterActivity extends AppCompatActivity {
 
             }
         });
+        valider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
+                //Article article = (Article) articles.get(position);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -142,4 +155,7 @@ public class FilterActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         editText.setText(sdf.format(calendar.getTime()));
     }
+
+
+
 }
